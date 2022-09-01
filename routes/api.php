@@ -15,8 +15,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware(['auth'])->group(function () {});
+Route::middleware('auth:api')->group(function () {
+    //
+});
     
+
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');

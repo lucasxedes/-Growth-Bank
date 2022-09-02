@@ -36,6 +36,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
+    public function login()
+    {
+        dd('Hello, Word!');
+    }
+    
     public function store(StoreUpdateUser $request)
     {
         //dd($request->all());

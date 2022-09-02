@@ -26,7 +26,7 @@ class StoreUpdateUser extends FormRequest
         return [
             'name' => 'required|string|max:255|min:3',
             'document_type' => 'required|string',
-            'document_number' => 'required|numeric|unique:users,document_number',
+            'document_number' => 'required|numeric|unique:users,document_number|digits_between:11,14',
             'email' => [
                 'required',
                 'email',

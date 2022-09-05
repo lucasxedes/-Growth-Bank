@@ -14,15 +14,16 @@ use App\Http\Controllers\UserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/users', [UserController::class, 'index']);
-Route::post('users/login', [UserController::class, 'login']);
+
+//Route::post('users/login', [UserController::class, 'login']);
 Route::post('users/registration', [UserController::class, 'store']);
 
 Route::middleware('auth:api')->group(function () {
+    Route::post('/users', [UserController::class, 'dashboard']);
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
     Route::put('/users/{id}', [UserController::class, 'update']);
     Route::get('/users/{id}/edit', [UserController::class, 'edit']);
-    //Route::get('/users', [UserController::class, 'index']);
+    // Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/create', [UserController::class, 'create']);
     Route::get('/users/{id}', [UserController::class, 'show']);
 });

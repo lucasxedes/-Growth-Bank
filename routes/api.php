@@ -16,16 +16,16 @@ use App\Http\Controllers\UserController;
 */
 
 //Route::post('users/login', [UserController::class, 'login']);
-Route::post('users/registration', [UserController::class, 'store']);
+Route::post('users/registration', [UserController::class, 'register']);
 
 Route::middleware('auth:api')->group(function () {
-    Route::post('/users', [UserController::class, 'dashboard']);
-    Route::delete('/users/{id}', [UserController::class, 'destroy']);
-    Route::put('/users/{id}', [UserController::class, 'update']);
-    Route::get('/users/{id}/edit', [UserController::class, 'edit']);
+    Route::get('/users', [UserController::class, 'details']);
+    //Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    //Route::put('/users/{id}', [UserController::class, 'update']);
+    //Route::get('/users/{id}/edit', [UserController::class, 'edit']);
     // Route::get('/users', [UserController::class, 'index']);
-    Route::get('/users/create', [UserController::class, 'create']);
-    Route::get('/users/{id}', [UserController::class, 'show']);
+    //Route::get('/users/create', [UserController::class, 'create']);
+    //Route::get('/users/{id}', [UserController::class, 'show']);
 });
 
     

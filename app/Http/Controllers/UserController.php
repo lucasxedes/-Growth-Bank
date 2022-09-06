@@ -26,11 +26,6 @@ class UserController extends Controller
         $this->useraddress = $useraddress;
     }
     
-    public function index()
-    {
-        dd('opa');
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -50,14 +45,9 @@ class UserController extends Controller
     //     }
     // }
     
-    public function dashboard()
-    {
-        $logado = Auth::user();
-        dd($logado->name);
-    }
+    
 
-
-    public function store(StoreUpdateUser $request)
+    public function register(StoreUpdateUser $request)
     {
 
         $user = $this->user->create([
@@ -65,7 +55,7 @@ class UserController extends Controller
             'document_type' => $request->document_type,
             'document_number' => $request->document_number,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password)
         ]);
 
         //$sucess = $user->createToken('MyApp')->accessToken;
@@ -77,10 +67,6 @@ class UserController extends Controller
             'city' => $request->city
         ]);
 
-
-        
-
-        
         
         return response()->json(['data' => [
             'user' => $user,
@@ -89,37 +75,10 @@ class UserController extends Controller
         ]]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function details()
     {
-        //
+        return response()->json(['user' => auth()->user()], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

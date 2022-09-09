@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_addresses', function (Blueprint $table) {
+        Schema::create('extracts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_address');
-            $table->foreign('user_address')->references('id')->on('users');
-            $table->string('address');
-            $table->string('number');
-            $table->string('city');
+            $table->unsignedBigInteger('id_account');
+            $table->foreign('id_account')->references('id')->on('accounts');
+            $table->string('balance');
+            $table->string('transfer_transactions');
+            $table->string('payment_transactions');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_addresses');
+        Schema::dropIfExists('extracts');
     }
 };

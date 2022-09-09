@@ -47,8 +47,8 @@ class User extends Authenticatable
     public function useraddress(){
         return $this->hasOne(UserAddress::class);
     }
-    public function transaction(){
-        return $this->hasOne(Transaction::class);
+    public function account(){
+        return $this->hasOne(Account::class);
     }
 
 }

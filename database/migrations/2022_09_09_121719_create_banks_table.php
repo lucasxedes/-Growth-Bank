@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_addresses', function (Blueprint $table) {
+        Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_address');
-            $table->foreign('user_address')->references('id')->on('users');
-            $table->string('address');
-            $table->string('number');
-            $table->string('city');
+            $table->string('bank');
+            $table->string('bank_number');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_addresses');
+        Schema::dropIfExists('banks');
     }
 };

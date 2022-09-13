@@ -10,7 +10,7 @@ class UserAddress extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'user_address',
         'address',
         'number',
         'city',
@@ -23,7 +23,7 @@ class UserAddress extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'user_id',
+        'user_address',
     ];
 
     /**

@@ -11,8 +11,10 @@ class Transfer extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = [
-        'transfers'
+    protected $fillable = [
+        'id_account',
+        'value',
+        'account_received'
     ];
     
 

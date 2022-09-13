@@ -12,16 +12,14 @@ class Account extends Model
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        
+        'id_agency',
+        'user_id',
         'user_password',
         'balance',
         'account_number',
         
     ];
 
-    protected $table = [
-        'accounts',
-    ];
 
     public function user(){
         return $this->belongsTo(User::class);

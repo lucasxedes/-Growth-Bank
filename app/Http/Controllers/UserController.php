@@ -8,17 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreUpdateUser;
 
-
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     protected $user;
     protected $useraddress;
+   
 
     public function __construct(User $user, UserAddress $useraddress)
     {
@@ -26,14 +20,7 @@ class UserController extends Controller
         $this->useraddress = $useraddress;
     }
     
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
-    
     // public function login(Request $request)
     // {
     //     if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -44,9 +31,7 @@ class UserController extends Controller
     //         return response()->json(['error' => 'Unauthorised'], 401);
     //     }
     // }
-    
-    
-
+        
     public function register(StoreUpdateUser $request)
     {
 
@@ -55,23 +40,20 @@ class UserController extends Controller
             'document_type' => $request->document_type,
             'document_number' => $request->document_number,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            
         ]);
 
-        //$sucess = $user->createToken('MyApp')->accessToken;
-
         $address = $this->useraddress->create([
-            'user_id' => $user->id,
+            'user_address' => $user->id,
             'address' => $request->address,
             'number' => $request->number,
             'city' => $request->city
         ]);
-
         
         return response()->json(['data' => [
             'user' => $user,
-            'useraddress' => $address,
-            //'token' => $sucess
+            'useraddress' => $address
         ]]);
     }
 

@@ -13,7 +13,8 @@ class Agency extends Model
 
     protected $fillable = [
         
-        'id_agencia',
+        'bank_id',
+        'agency_number'
         
     ];
 

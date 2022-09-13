@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_agency');
             $table->foreign('id_agency')->references('id')->on('agencies');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('user_password');
             $table->string('balance');
-            $table->string('account_number');
+            $table->string('account_number')->unique();
             $table->timestamps();
         });
     }

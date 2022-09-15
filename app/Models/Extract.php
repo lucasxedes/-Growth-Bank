@@ -11,8 +11,11 @@ class Extract extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = [
-        'extracts'
+    protected $fillable = [
+        'id_account',
+        'balance',
+        'transfer_transactions',
+        'payment_transactions'
     ];
     
 

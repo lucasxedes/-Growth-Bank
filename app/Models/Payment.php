@@ -11,10 +11,11 @@ class Payment extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = [
-        'payments'
+    protected $fillable = [
+        'id_account',
+        'value',
+        'account_received'
     ];
-    
 
     public function account()
     {

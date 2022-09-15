@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\TransferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ExtractController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TransferController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/users', [UserController::class, 'details']);
     Route::post('users/account', [AccountController::class, 'account']);
     Route::post('/users/transfer', [TransferController::class, 'transferUser']);
+    Route::get('/users/extract', [ExtractController::class, 'extractUser']);
+    Route::post('/users/payment', [PaymentController::class, 'index']);
     //Route::delete('/users/{id}', [UserController::class, 'destroy']);
     //Route::put('/users/{id}', [UserController::class, 'update']);
     //Route::get('/users/{id}/edit', [UserController::class, 'edit']);

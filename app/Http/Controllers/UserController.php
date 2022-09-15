@@ -58,9 +58,13 @@ class UserController extends Controller
     }
 
 
-    public function details()
+    public function details(
+
+    )
     {
-        return response()->json(['user' => auth()->user()], 200);
+        return response()->json([
+            'user' => auth()->user(),
+            'account' => auth()->user()->account], 200);
     }
 
 }

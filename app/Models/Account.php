@@ -20,6 +20,10 @@ class Account extends Model
         
     ];
 
+    protected $hidden = [
+        'user_password'
+    ];
+
 
     public function user(){
         return $this->belongsTo(User::class);

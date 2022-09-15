@@ -16,6 +16,11 @@ class Transfer extends Model
         'value',
         'account_received'
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
     
 
     public function account()

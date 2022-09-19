@@ -13,6 +13,8 @@ class Transfer extends Model
 
     protected $fillable = [
         'id_account',
+        'from_account_number',
+        'to_account_number',
         'value',
         'account_received'
     ];

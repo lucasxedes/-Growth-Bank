@@ -32,7 +32,6 @@ Route::post('users/registration', [UserController::class, 'register']);
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/users', [UserController::class, 'details']);
-    Route::post('users/account', [AccountController::class, 'account']);
     Route::post('/users/transfer', [TransferController::class, 'transferUser']);
     Route::get('/users/extract', [ExtractController::class, 'extractUser']);
     Route::post('/users/payment', [PaymentController::class, 'index']);

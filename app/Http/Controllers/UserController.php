@@ -58,7 +58,7 @@ class UserController extends Controller
             'id_agency' => 1,
             'user_id' => $user->id,
             'user_password' => $request->account_password,
-            'balance' => 0,
+            'balance' => 1000,
             'account_number' => rand(1000, 9999)
 
         ]);
@@ -76,6 +76,7 @@ class UserController extends Controller
 
     )
     {
+        
         return response()->json([
             'user' => auth()->user(),
             'account' => auth()->user()->account], 200);

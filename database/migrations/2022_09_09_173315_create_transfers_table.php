@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_account');
             $table->foreign('id_account')->references('id')->on('accounts');
+            $table->string('to_account_number');
+            $table->string('from_account_number');
             $table->string('value');
             $table->string('account_received');
             $table->timestamps();

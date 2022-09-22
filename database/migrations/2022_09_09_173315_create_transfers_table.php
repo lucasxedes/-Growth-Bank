@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('to_account_number');
             $table->string('from_account_number');
             $table->string('value');
-            $table->string('account_received');
             $table->timestamps();
         });
     }

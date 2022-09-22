@@ -44,13 +44,10 @@ class TransferController extends Controller
             'to_account_number' => $request->to_account_number,
             'from_account_number' => $request->from_account_number,
             'value' => $request->value,
-            'account_received' => $enteringAccount->account_number
         ]);
         
         return response()->json(['data' => [
-            'leavingAccounts' => $leavingAccount,
-            'enteringAccount' => $enteringAccount,
-            'Transfers' => $transfers
+            'Transfers successful' => $transfers
             ]]);
         }catch(\Exception $e){
             return response()->json([

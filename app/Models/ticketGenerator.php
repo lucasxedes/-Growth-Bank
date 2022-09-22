@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Payment extends Model
+class ticketGenerator extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
         'id_account',
-        'to_account_number',
-        'from_ticket_code',
+        'ticket_generator',
         'value',
-        'account_received'
+        'account_number_generator'
     ];
 
     protected $hidden = [

@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Account;
 use App\Models\UserAddress;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreUpdateUser;
 
 class UserController extends Controller
@@ -23,18 +21,6 @@ class UserController extends Controller
         $this->account = $account;
     }
     
-
-    // public function login(Request $request)
-    // {
-    //     if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            
-    //         $sucess = $this->user->createToken('MyApp')->accessToken;
-    //         return response()->json(['sucess' => $sucess], 200);
-    //     } else {
-    //         return response()->json(['error' => 'Unauthorised'], 401);
-    //     }
-    // }
-        
     public function register(StoreUpdateUser $request)
     {
 

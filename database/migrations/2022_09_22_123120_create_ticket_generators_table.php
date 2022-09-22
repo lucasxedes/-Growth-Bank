@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('ticket_generators', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_account');
             $table->foreign('id_account')->references('id')->on('accounts');
-            $table->string('to_account_number');
-            $table->string('from_ticket_code');
+            $table->string('ticket_generator');
             $table->string('value');
-            $table->string('account_received');
+            $table->string('account_number_generator');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('ticket_generators');
     }
 };

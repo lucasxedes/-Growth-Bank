@@ -42,4 +42,8 @@ class Account extends Model
     public function payment(){
         return $this->hasOne(Payment::class);
     }
+
+    public function ticketGenerator(){
+        return $this->hasOne(ticketGenerator::class);
+    }
 }

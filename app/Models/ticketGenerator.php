@@ -15,7 +15,8 @@ class ticketGenerator extends Model
         'id_account',
         'ticket_generator',
         'value',
-        'account_number_generator'
+        'account_number_generator',
+        'ticket_expiration'
     ];
 
     protected $hidden = [

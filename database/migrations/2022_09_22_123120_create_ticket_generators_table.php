@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('ticket_generator');
             $table->string('value');
             $table->string('account_number_generator');
+            $table->string('ticket_expiration')->date_format();
             $table->timestamps();
         });
     }
